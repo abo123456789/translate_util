@@ -13,7 +13,6 @@ pip install translate_util
 
 ### DEMO
 
-##### 1.发布消费字符串类型任务
 ```python
     content = 'china'
     for plat in ['google', 'baidu', 'iciba', 'youdao']:
