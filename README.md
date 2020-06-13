@@ -14,6 +14,14 @@ pip install translate_util
 ### DEMO
 
 ```python
+    from translate_util.translate_tool import translate_other2cn,translate_other2en
+    # translate other language to chinese (default use google)
+    print(translate_other2cn('china'))
+    
+    # translate other language to english (default use google)
+    print(translate_other2en('中国'))
+    
+    # other translate demo
     content = 'china'
     for plat in ['google', 'baidu', 'iciba', 'youdao']:
         print(f'{plat}:{translate_other2cn(content, plat)}')

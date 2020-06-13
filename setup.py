@@ -7,9 +7,9 @@ from setuptools import setup, find_packages
 
 setup(
     name='translate_util',
-    version='1.0.1',
+    version='1.0.2',
     description=(
-        '翻译工具类'
+        'translate tool support(google,baidu,iciba,youdao)'
     ),
     long_description_content_type="text/markdown",
     long_description=open('README.md').read(),
@@ -25,7 +25,7 @@ setup(
     ],
     packages=find_packages(),
     platforms=["all"],
-    url='https://github.com/abo123456789/RedisQueue',
+    url='https://github.com/abo123456789/translate_util',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Operating System :: OS Independent',
