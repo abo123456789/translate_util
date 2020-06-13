@@ -91,5 +91,5 @@ if __name__ == '__main__':
     for plat in ['google', 'baidu', 'iciba', 'youdao']:
         print(f'{plat}:{translate_other2en(content, plat)}')
 
-    tran_rs = translate_other2cn(content='chinese', platform='youdao', proxies='5.34.178.48:8080')
+    tran_rs = translate_other2cn(content='chinese', platform='google', proxies='5.34.178.48:8080')
     print(tran_rs)
