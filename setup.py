@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='translate_util',
-    version='1.0.2',
+    version='1.0.3',
     description=(
         'translate tool support(google,baidu,iciba,youdao)'
     ),
