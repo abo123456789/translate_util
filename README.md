@@ -8,7 +8,7 @@ translate utils support google,baidu,iciba,youdao
 
 * pip install:
 ```shell
-pip install translate_util
+pip install translate-util
 ```
 
 ### DEMO
