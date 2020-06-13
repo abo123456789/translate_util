@@ -15,6 +15,7 @@ pip install translate_util
 
 ```python
     from translate_util.translate_tool import translate_other2cn,translate_other2en
+    
     # translate other language to chinese (default use google)
     print(translate_other2cn('china'))
     
