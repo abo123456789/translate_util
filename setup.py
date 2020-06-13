@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='translate_util',
-    version='1.0.3',
+    version='1.0.4',
     description=(
         'translate tool support(google,baidu,iciba,youdao)'
     ),
@@ -21,7 +21,8 @@ setup(
     install_requires=[
         "requests>=2.22.0",
         "retrying>=1.3.3",
-        "loguru>=0.3.2"
+        "loguru>=0.3.2",
+        "PyExecJS>=1.5.1"
     ],
     packages=find_packages(),
     platforms=["all"],
