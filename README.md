@@ -22,7 +22,7 @@ pip install translate-util
     # translate other language to english (default use google)
     print(translate_other2en('中国'))
     
-    # other translate demo
+    # other plat translate demo
     content = 'china'
     for plat in ['google', 'baidu', 'iciba', 'youdao']:
         print(f'{plat}:{translate_other2cn(content, plat)}')
