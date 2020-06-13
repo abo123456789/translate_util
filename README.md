@@ -1,4 +1,4 @@
-
+![avatar](https://github.com/translate/translate/workflows/Test/badge.svg)  
 translate utils support google,baidu,iciba,youdao
 ### [introduction]
 
