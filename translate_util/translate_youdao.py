@@ -27,7 +27,7 @@ class YoudaoTranslate(BaseTranslate):
         :return: 
         """
         url = f'http://fanyi.youdao.com/translate?&doctype=json&from=AUTO&to=zh-CHS&i={self.content}'
-        r = send_request('get', url, )
+        r = send_request('get', url, proxies=self.proxies)
         rs = []
         for result in r.json()['translateResult'][0]:
             rs.append(result['tgt'])

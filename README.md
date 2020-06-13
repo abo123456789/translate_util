@@ -30,6 +30,10 @@ pip install translate-util
     content = '中国'
     for plat in ['google', 'baidu', 'iciba', 'youdao']:
         print(f'{plat}:{translate_other2en(content, plat)}')
+    
+    # if your request is limit by google,please use proxies ip
+    tran_rs = translate_other2cn('chinese', 'youdao', proxies='5.34.178.48:8080')
+    print(tran_rs)
 ```
 
 ### OTHER SUPPORT

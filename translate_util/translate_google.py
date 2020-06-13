@@ -9,7 +9,7 @@ from translate_util.common_request import send_request
 class GoogleTranslate(BaseTranslate):
     def trans_text_en2cn(self):
         url = f'http://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=auto&tl=zh&q={self.content}'
-        r = send_request('get', url, )
+        r = send_request('get', url, proxies=self.proxies)
         # self.logger.info(r.text)
         rs = []
         for result in r.json()['sentences']:
@@ -21,7 +21,7 @@ class GoogleTranslate(BaseTranslate):
 
     def trans_text_other2en(self):
         url = f'http://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=auto&tl=en&q={self.content}'
-        r = send_request('get', url, )
+        r = send_request('get', url, proxies=self.proxies)
         # self.logger.info(r.text)
         rs = []
         for result in r.json()['sentences']:

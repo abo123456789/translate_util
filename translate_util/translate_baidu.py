@@ -50,10 +50,11 @@ class BaiduTranslate(BaseTranslate):
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
     }
 
-    def __init__(self, content):
+    def __init__(self, content, proxies=None):
         self.token = None
         self.gtk = None
         self.content = content
+        self.proxies = proxies
 
         # 获得token和gtk
         # 必须要加载两次保证token是最新的，否则会出现998的错误

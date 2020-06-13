@@ -6,12 +6,13 @@ from loguru import logger
 
 
 class BaseTranslate(metaclass=abc.ABCMeta):
-    def __init__(self, content):
+    def __init__(self, content: str, proxies: str = None):
         """
-        
         :param content: 带翻译的内容
+        :param proxies: 代理IP(5.34.178.48:8080)
         """
         self.content = content
+        self.proxies = proxies
         self.logger = logger
 
     def trans_text_en2cn(self):
