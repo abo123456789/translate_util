@@ -23,7 +23,6 @@ class YoudaoTranslate(BaseTranslate):
         FR2ZH_CN 法语　»　中文
         RU2ZH_CN 俄语　»　中文
         SP2ZH_CN 西语　»　中文
-        :param content: 
         :return: 
         """
         url = f'http://fanyi.youdao.com/translate?&doctype=json&from=AUTO&to=zh-CHS&i={self.content}'
@@ -47,8 +46,8 @@ class YoudaoTranslate(BaseTranslate):
 
 if __name__ == '__main__':
     for source_text in ['china', '저는 중국사람입니다']:
-        rs = YoudaoTranslate(content=source_text).trans_text_other2cn()
-        print(rs)
+        _rs = YoudaoTranslate(content=source_text).trans_text_other2cn()
+        print(_rs)
 
     for source_text in ['中国', '저는 중국사람입니다']:
         res = YoudaoTranslate(content=source_text).trans_text_other2en()

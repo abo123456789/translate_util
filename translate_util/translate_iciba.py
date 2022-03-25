@@ -41,8 +41,8 @@ class IcibaTranslate(BaseTranslate):
 
 if __name__ == '__main__':
     for source_text in ['china', '저는 중국사람입니다']:
-        rs = IcibaTranslate(content=source_text).trans_text_other2cn()
-        print(rs)
+        _rs = IcibaTranslate(content=source_text).trans_text_other2cn()
+        print(_rs)
     for source_text in ['中国', '저는 중국사람입니다']:
         res = IcibaTranslate(content=source_text).trans_text_other2en()
         print(res)

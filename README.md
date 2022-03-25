@@ -24,11 +24,11 @@ pip install translate-util
     
     # other plat translate demo
     content = 'china'
-    for plat in ['google', 'baidu', 'iciba', 'youdao']:
+    for plat in ['google', 'baidu', 'youdao']:
         print(f'{plat}:{translate_other2cn(content, plat)}')
 
     content = '中国'
-    for plat in ['google', 'baidu', 'iciba', 'youdao']:
+    for plat in ['google', 'baidu', 'youdao']:
         print(f'{plat}:{translate_other2en(content, plat)}')
     
     # if your request is limit by google,please use proxies ip

@@ -31,8 +31,8 @@ class GoogleTranslate(BaseTranslate):
 
 if __name__ == '__main__':
     for source_text in ['china', '저는 중국사람입니다']:
-        rs = GoogleTranslate(content=source_text).trans_text_other2cn()
-        print(rs)
+        _rs = GoogleTranslate(content=source_text).trans_text_other2cn()
+        print(_rs)
     for source_text in ['中国', '저는 중국사람입니다']:
         res = GoogleTranslate(content=source_text).trans_text_other2en()
         print(res)
