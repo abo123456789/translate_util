@@ -14,7 +14,7 @@ class IcibaTranslate(BaseTranslate):
     def trans_text_en2cn(self):
         params = {
             'a': 'fy',
-            'f': 'auto',
+            'f': self.sl,
             't': 'zh-CN',
             'w': self.content
         }
@@ -29,7 +29,7 @@ class IcibaTranslate(BaseTranslate):
     def trans_text_other2en(self):
         params = {
             'a': 'fy',
-            'f': 'auto',
+            'f': self.sl,
             't': 'en',
             'w': self.content
         }

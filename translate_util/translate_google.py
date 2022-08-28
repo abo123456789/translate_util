@@ -8,7 +8,7 @@ from translate_util.common_request import send_request
 
 class GoogleTranslate(BaseTranslate):
     def trans_text_en2cn(self):
-        url = f'http://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=auto&tl=zh&q={self.content}'
+        url = f'http://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl={self.sl}&tl=zh&q={self.content}'
         r = send_request('get', url, proxies=self.proxies)
         # self.logger.info(r.text)
         rs = []
@@ -20,7 +20,7 @@ class GoogleTranslate(BaseTranslate):
         return self.trans_text_en2cn()
 
     def trans_text_other2en(self):
-        url = f'http://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=auto&tl=en&q={self.content}'
+        url = f'http://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl={self.sl}&tl=en&q={self.content}'
         r = send_request('get', url, proxies=self.proxies)
         # self.logger.info(r.text)
         rs = []
@@ -33,6 +33,6 @@ if __name__ == '__main__':
     for source_text in ['china', '저는 중국사람입니다']:
         _rs = GoogleTranslate(content=source_text).trans_text_other2cn()
         print(_rs)
-    for source_text in ['中国', '저는 중국사람입니다']:
-        res = GoogleTranslate(content=source_text).trans_text_other2en()
+    for source_text in ['31 maggio 2021']:
+        res = GoogleTranslate(content=source_text, sl='it').trans_text_other2en()
         print(res)

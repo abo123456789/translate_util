@@ -25,7 +25,7 @@ class YoudaoTranslate(BaseTranslate):
         SP2ZH_CN 西语　»　中文
         :return: 
         """
-        url = f'http://fanyi.youdao.com/translate?&doctype=json&from=AUTO&to=zh-CHS&i={self.content}'
+        url = f'http://fanyi.youdao.com/translate?&doctype=json&from={self.sl.upper()}&to=zh-CHS&i={self.content}'
         r = send_request('get', url, proxies=self.proxies)
         rs = []
         for result in r.json()['translateResult'][0]:
@@ -36,7 +36,7 @@ class YoudaoTranslate(BaseTranslate):
         return self.trans_text_en2cn()
 
     def trans_text_other2en(self):
-        url = f'http://fanyi.youdao.com/translate?&doctype=json&from=AUTO&to=en&i={self.content}'
+        url = f'http://fanyi.youdao.com/translate?&doctype=json&from={self.sl.upper()}&to=en&i={self.content}'
         r = send_request('get', url, )
         rs = []
         for result in r.json()['translateResult'][0]:
@@ -49,6 +49,6 @@ if __name__ == '__main__':
         _rs = YoudaoTranslate(content=source_text).trans_text_other2cn()
         print(_rs)
 
-    for source_text in ['中国', '저는 중국사람입니다']:
-        res = YoudaoTranslate(content=source_text).trans_text_other2en()
+    for source_text in ['31 maggio 2021']:
+        res = YoudaoTranslate(content=source_text, sl='it').trans_text_other2en()
         print(res)

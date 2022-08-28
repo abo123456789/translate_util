@@ -59,23 +59,24 @@ def translate_other2cn(content: str, platform='google', proxies: str = None):
 
 
 @retry(stop_max_attempt_number=3)
-def translate_other2en(content: str, platform='google', proxies: str = None):
+def translate_other2en(content: str, platform='google', proxies: str = None, sl:str='auto'):
     """
     根据翻译平台将其它语言翻译成英文
     :param content: 带翻译的平台
     :param platform: 使用的翻译平台 google,baidu,iciba,youdao
     :param proxies: 代理IP(5.34.178.48:8080)
+    :param sl: 源语言的编码
     :return: 翻译后的内容 string
     """
     try:
         if platform == 'google':
-            return GoogleTranslate(content=content, proxies=proxies).trans_text_other2en()
+            return GoogleTranslate(content=content, proxies=proxies, sl=sl).trans_text_other2en()
         elif platform == 'baidu':
-            return BaiduTranslate(content=content, proxies=proxies).trans_text_other2en()
+            return BaiduTranslate(content=content, proxies=proxies, sl=sl).trans_text_other2en()
         elif platform == 'iciba':
-            return BaiduTranslate(content=content, proxies=proxies).trans_text_other2en()
+            return BaiduTranslate(content=content, proxies=proxies, sl=sl).trans_text_other2en()
         elif platform == 'youdao':
-            return YoudaoTranslate(content=content, proxies=proxies).trans_text_other2en()
+            return YoudaoTranslate(content=content, proxies=proxies, sl=sl).trans_text_other2en()
         else:
             return GoogleTranslate(content=content, proxies=proxies).trans_text_other2en()
     except(Exception,):
@@ -83,13 +84,13 @@ def translate_other2en(content: str, platform='google', proxies: str = None):
 
 
 if __name__ == '__main__':
-    _content = 'china'
-    for plat in ['google', 'baidu', 'iciba', 'youdao']:
-        print(f'{plat}:{translate_other2cn(_content, plat)}')
+    # _content = 'china'
+    # for plat in ['google', 'baidu', 'iciba', 'youdao']:
+    #     print(f'{plat}:{translate_other2cn(_content, plat)}')
 
-    _content = '服务器'
-    for plat in ['google', 'baidu', 'iciba', 'youdao']:
-        print(f'{plat}:{translate_other2en(_content, plat)}')
+    _content = '31 maggio 2021'
+    for plat in ['google']:
+        print(f'{plat}:{translate_other2en(_content, plat, sl="it")}')
 
     tran_rs = translate_other2cn(content='chinese', platform='google', proxies='5.34.178.48:8080')
     print(tran_rs)
