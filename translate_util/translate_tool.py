@@ -4,10 +4,7 @@
 import traceback
 
 from retrying import retry
-from translate_util.translate_baidu import BaiduTranslate
 from translate_util.translate_google import GoogleTranslate
-# from translate_util.translate_iciba import IcibaTranslate
-from translate_util.translate_youdao import YoudaoTranslate
 
 
 @retry(stop_max_attempt_number=3)
@@ -22,14 +19,21 @@ def translate_en2cn(content: str, platform: str = 'google', proxies: str = None)
     try:
         if platform == 'google':
             return GoogleTranslate(content=content, proxies=proxies).trans_text_en2cn()
-        elif platform == 'baidu':
-            return BaiduTranslate(content=content, proxies=proxies).trans_text_en2cn()
-        elif platform == 'iciba':
-            return BaiduTranslate(content=content, proxies=proxies).trans_text_en2cn()
-        elif platform == 'youdao':
-            return YoudaoTranslate(content=content, proxies=proxies).trans_text_en2cn()
+        # elif platform == 'baidu':
+        #     return BaiduTranslate(content=content, proxies=proxies).trans_text_en2cn()
+        # elif platform == 'iciba':
+        #     return BaiduTranslate(content=content, proxies=proxies).trans_text_en2cn()
+        # elif platform == 'youdao':
+        #    return YoudaoTranslate(content=content, proxies=proxies).trans_text_en2cn()
         else:
             return GoogleTranslate(content=content, proxies=proxies).trans_text_en2cn()
+    except(Exception,):
+        raise Exception(traceback.format_exc())
+
+@retry(stop_max_attempt_number=3)
+def translate_text(content: str, sl='auto', tl='zh-CN'):
+    try:
+        return GoogleTranslate(content=content).trans_text(content, sl, tl)
     except(Exception,):
         raise Exception(traceback.format_exc())
 
@@ -46,12 +50,12 @@ def translate_other2cn(content: str, platform='google', proxies: str = None):
     try:
         if platform == 'google':
             return GoogleTranslate(content=content, proxies=proxies).trans_text_other2cn()
-        elif platform == 'baidu':
-            return BaiduTranslate(content=content, proxies=proxies).trans_text_other2cn()
-        elif platform == 'iciba':
-            return BaiduTranslate(content=content, proxies=proxies).trans_text_other2cn()
-        elif platform == 'youdao':
-            return YoudaoTranslate(content=content, proxies=proxies).trans_text_other2cn()
+        # elif platform == 'baidu':
+        #     return BaiduTranslate(content=content, proxies=proxies).trans_text_other2cn()
+        # elif platform == 'iciba':
+        #     return BaiduTranslate(content=content, proxies=proxies).trans_text_other2cn()
+        # elif platform == 'youdao':
+        #     return YoudaoTranslate(content=content, proxies=proxies).trans_text_other2cn()
         else:
             return GoogleTranslate(content=content).trans_text_other2cn()
     except(Exception,):
@@ -59,7 +63,7 @@ def translate_other2cn(content: str, platform='google', proxies: str = None):
 
 
 @retry(stop_max_attempt_number=3)
-def translate_other2en(content: str, platform='google', proxies: str = None, sl:str='auto'):
+def translate_other2en(content: str, platform='google', proxies: str = None, sl: str = 'auto'):
     """
     根据翻译平台将其它语言翻译成英文
     :param content: 带翻译的平台
@@ -71,14 +75,14 @@ def translate_other2en(content: str, platform='google', proxies: str = None, sl:
     try:
         if platform == 'google':
             return GoogleTranslate(content=content, proxies=proxies, sl=sl).trans_text_other2en()
-        elif platform == 'baidu':
-            return BaiduTranslate(content=content, proxies=proxies, sl=sl).trans_text_other2en()
-        elif platform == 'iciba':
-            return BaiduTranslate(content=content, proxies=proxies, sl=sl).trans_text_other2en()
-        elif platform == 'youdao':
-            return YoudaoTranslate(content=content, proxies=proxies, sl=sl).trans_text_other2en()
-        else:
-            return GoogleTranslate(content=content, proxies=proxies).trans_text_other2en()
+        # elif platform == 'baidu':
+        #     return BaiduTranslate(content=content, proxies=proxies, sl=sl).trans_text_other2en()
+        # elif platform == 'iciba':
+        #     return BaiduTranslate(content=content, proxies=proxies, sl=sl).trans_text_other2en()
+        # elif platform == 'youdao':
+        #     return YoudaoTranslate(content=content, proxies=proxies, sl=sl).trans_text_other2en()
+        # else:
+        #     return GoogleTranslate(content=content, proxies=proxies).trans_text_other2en()
     except(Exception,):
         raise Exception(traceback.format_exc())
 
@@ -94,3 +98,6 @@ if __name__ == '__main__':
 
     tran_rs = translate_other2cn(content='chinese', platform='google', proxies='5.34.178.48:8080')
     print(tran_rs)
+
+    res = translate_text('我是中国人', tl='fr')
+    print(res)

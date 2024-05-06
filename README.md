@@ -14,7 +14,7 @@ pip install translate-util
 ### DEMO
 
 ```python
-    from translate_util.translate_tool import translate_other2cn,translate_other2en
+    from translate_util.translate_tool import translate_other2cn,translate_other2en,translate_text
     
     # translate other language to chinese (default use google)
     print(translate_other2cn('china'))
@@ -22,18 +22,10 @@ pip install translate-util
     # translate other language to english (default use google)
     print(translate_other2en('中国'))
     
-    # other plat translate demo
-    content = 'china'
-    for plat in ['google', 'baidu', 'youdao']:
-        print(f'{plat}:{translate_other2cn(content, plat)}')
-
-    content = '中国'
-    for plat in ['google', 'baidu', 'youdao']:
-        print(f'{plat}:{translate_other2en(content, plat)}')
+    # translate other language to de ,support any language
+    print(translate_text('china', tl='de'))
     
-    # if your request is limit by google,please use proxies ip
-    tran_rs = translate_other2cn(content='chinese', platform='google', proxies='5.34.178.48:8080')
-    print(tran_rs)
+    
 ```
 
 ### OTHER SUPPORT

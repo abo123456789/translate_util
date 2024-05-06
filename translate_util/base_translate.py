@@ -25,3 +25,6 @@ class BaseTranslate(metaclass=abc.ABCMeta):
 
     def trans_text_other2en(self):
         pass
+
+    def trans_text(self, st: str, sl='auto', tl='zh-CN'):
+        pass
