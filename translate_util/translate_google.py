@@ -50,7 +50,7 @@ class GoogleTranslate(BaseTranslate):
             'Cookie': '1P_JAR=2022-12-26-12; NID=511=eVLI1bG9nhyOZtqU14JBHm5Be00epdxfR4XmfQeehYyIkzgpXi6dbpNY75ZMVyS7aOjoM2oZ5WdoR8eNq6wi1-e_J0NeoyI0dtsHW-_8Ik4PGrqvuGHdcvVC03zTOEK2TY1FZL85Wimo_ZPIE3hGIrmGPSiel6-rRRW9lD30UPs'
         }
 
-        response = requests.request("POST", url, headers=headers, data=payload)
+        response = requests.request("POST", url,proxies=self.proxies, headers=headers, data=payload)
         res_text = response.content.decode()
         res_array = re.findall(r'id="tw-answ-target-text">(.*?)</span>', res_text,
                                flags=re.IGNORECASE)
