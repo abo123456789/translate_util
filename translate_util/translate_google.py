@@ -2,6 +2,7 @@
 # @Author cc
 # @TIME 2020/5/25 16:02
 import re
+import urllib.parse
 
 import requests
 
@@ -9,7 +10,6 @@ from translate_util.base_translate import BaseTranslate
 
 
 class GoogleTranslate(BaseTranslate):
-
     def trans_text_other2cn(self):
         return self.trans_text(self.content, tl='zh-CN')
 
@@ -26,7 +26,7 @@ class GoogleTranslate(BaseTranslate):
         """
         url = "https://www.google.com.hk/async/translate"
 
-        payload = f"async=translate,sl:{sl},tl:{tl},st:{st.encode('utf-8')},id:1672056488960,qc:true,ac:true,_id:tw-async-translate,_pms:s,_fmt:pc"
+        payload = f"async=translate,sl:{sl},tl:{tl},st:{urllib.parse.quote(st)},id:1672056488960,qc:true,ac:true,_id:tw-async-translate,_pms:s,_fmt:pc"
         headers = {
             'sec-ch-ua': '"Not?A_Brand";v="8", "Chromium";v="108", "Google Chrome";v="108"',
             'DNT': '1',
@@ -52,7 +52,6 @@ class GoogleTranslate(BaseTranslate):
 
         response = requests.request("POST", url, headers=headers, data=payload)
         res_text = response.content.decode()
-        print(res_text)
         res_array = re.findall(r'id="tw-answ-target-text">(.*?)</span>', res_text,
                                flags=re.IGNORECASE)
         return res_array[0]

@@ -23,6 +23,7 @@ pip install translate-util
     print(translate_other2en('中国'))
     
     # translate other language to de ,support any language
+    # tl demo: zh-CN/de/fr/en/it/es
     print(translate_text('china', tl='de'))
     
     
