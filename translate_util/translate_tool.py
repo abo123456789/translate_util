@@ -31,9 +31,9 @@ def translate_en2cn(content: str, platform: str = 'google', proxies: str = None)
         raise Exception(traceback.format_exc())
 
 @retry(stop_max_attempt_number=3)
-def translate_text(content: str, sl='auto', tl='zh-CN'):
+def translate_text(content: str, sl='auto', tl='zh-CN', proxies=None):
     try:
-        return GoogleTranslate(content=content).trans_text(content, sl, tl)
+        return GoogleTranslate(content=content, proxies=proxies).trans_text(content, sl, tl)
     except(Exception,):
         raise Exception(traceback.format_exc())
 

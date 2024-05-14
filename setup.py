@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='translate_util',
-    version='1.1.3',
+    version='1.1.4',
     description=(
         'translate tool support(google)'
     ),
